@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-tech-test';
+  get year() {
+    return new Date().getFullYear();
+  }
 }

@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-header>
+    <p class="header">
+      <i>{{ task.category | titlecase }}</i>
+      <span *ngIf="task.done">Completed: <b>&nbsp;{{ task.done }}</b></span>
+    </p>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="content">
+      <mat-checkbox
+        color="primary"
+        [checked]="!!task.done"
+        (click)="changeStatus($event)"
+      >
+        {{ task.description }}
+      </mat-checkbox>
+    </div>
+  </mat-card-content>
+  <mat-card-footer align="end">
+    <div class="actions">
+      <button mat-mini-fab color="primary" (click)="onEdit()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-mini-fab color="warn" (click)="onDelete()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </mat-card-footer>
+</mat-card>

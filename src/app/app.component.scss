@@ -1,0 +1,54 @@
+@use '@angular/material' as mat;
+
+$my-palette: mat.define-palette(mat.$gray-palette);
+$container-padding: 16px;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.app-toolbar {
+  justify-content: center;
+}
+
+.app-content {
+  position: relative;
+  flex: 1;
+  padding: $container-padding;
+  background-color: mat.get-color-from-palette($my-palette, 100);
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: mat.get-color-from-palette($my-palette, 200);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: mat.get-color-from-palette($my-palette, 400);
+    border-radius: 6px;
+  }
+
+  &__container {
+    max-width: 1024px;
+    margin: 0 auto;
+
+    @media(max-width: 1024px) {
+      max-width: 768px;
+    }
+  }
+}
+
+.app-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  background-color: mat.get-color-from-palette($my-palette, 500);
+  text-align: center;
+  font-weight: 500;
+}

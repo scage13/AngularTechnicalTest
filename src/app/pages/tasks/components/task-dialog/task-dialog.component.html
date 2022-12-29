@@ -1,0 +1,38 @@
+<h4 mat-dialog-title>
+  {{ data.mode | titlecase }} Task
+</h4>
+<mat-dialog-content class="mat-typography">
+  <form class="form" [formGroup]="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input formControlName="description" matInput placeholder="Task description..." required>
+      <mat-error *ngIf="form.get('description')?.hasError('required')">
+        This field is required
+      </mat-error>
+      <mat-error *ngIf="form.get('description')?.hasError('minlength')">
+        At least {{ form.get('description')?.getError('minlength')?.requiredLength }} characters
+      </mat-error>
+      <mat-error *ngIf="form.get('description')?.hasError('maxlength')">
+        No more than {{ form.get('description')?.getError('maxlength')?.requiredLength }} characters
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let option of categoriesList" [value]="option">
+          {{ option | titlecase }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('category')?.hasError('required')">
+        This field is required
+      </mat-error>
+    </mat-form-field>
+
+    <div mat-dialog-actions align="end">
+      <button mat-raised-button mat-dialog-close>Cancel</button>
+      <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="submit()">Save</button>
+    </div>
+  </form>
+</mat-dialog-content>
+

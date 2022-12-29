@@ -1,0 +1,28 @@
+.tasks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 48px;
+
+  &__col {
+    max-width: calc(50% - 8px);
+    flex-basis: calc(50% - 8px);
+
+    @media (max-width: 1024px) {
+      max-width: 100%;
+      flex-basis: 100%;
+    }
+  }
+}
+
+.add-task {
+  position: fixed;
+  bottom: 52px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+mat-spinner {
+  margin: 120px auto;
+}

@@ -1,0 +1,14 @@
+<app-task-filters></app-task-filters>
+<div class="tasks">
+  <ng-container *ngIf="loading$ | async; else tasks">
+    <mat-spinner></mat-spinner>
+  </ng-container>
+  <ng-template #tasks>
+    <div *ngFor="let task of (tasks$ | async)" class="tasks__col">
+      <app-task-card [task]="task"></app-task-card>
+    </div>
+  </ng-template>
+</div>
+<button class="add-task" mat-mini-fab color="accent" (click)="addTask()">
+  <mat-icon>add</mat-icon>
+</button>

@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>
+  Confirm action
+</h1>
+<div *ngIf="data?.reason" mat-dialog-content>
+  {{ data.reason }}
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="false" cdkFocusInitial>No</button>
+  <button mat-button color="warn" [mat-dialog-close]="true">Ok</button>
+</div>

@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id": 2,
+      "description": "Start doing my taxes and contact my accountant jhon for advice",
+      "category": "bureaucracy",
+      "done": "Thu Dec 29 2022"
+    },
+    {
+      "id": 1672298662182,
+      "description": "Test1",
+      "category": "work",
+      "done": false
+    },
+    {
+      "id": 1672299675631,
+      "description": "Another task",
+      "category": "house",
+      "done": false
+    }
+  ]
+}
